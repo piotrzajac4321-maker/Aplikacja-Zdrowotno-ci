@@ -51,9 +51,27 @@ env.globals["url_for"] = url_for
 env.globals["site_name"] = "ZielonaApteka"
 
 
+def _inline_tailwind(html: str) -> str:
+    """Podmień CDN Tailwinda na lokalny, statycznie skompilowany CSS.
+
+    Pozwala obejrzeć podgląd offline (bez internetu). W trybie produkcyjnym
+    Flask serwuje normalny szablon z CDN.
+    """
+    cdn_script = '<script src="https://cdn.tailwindcss.com"></script>'
+    local_css = '<link rel="stylesheet" href="./static/css/tailwind.css" />'
+    if cdn_script in html:
+        html = html.replace(cdn_script, local_css)
+        # Usuń inline tailwind.config — temat jest już wbudowany w skompilowany CSS.
+        start = html.find("<script>\n    tailwind.config")
+        if start != -1:
+            end = html.find("</script>", start) + len("</script>")
+            html = html[:start] + html[end:]
+    return html
+
+
 def render(template_name: str, output_path: Path, **context) -> None:
     template = env.get_template(template_name)
-    html = template.render(**context)
+    html = _inline_tailwind(template.render(**context))
     output_path.write_text(html, encoding="utf-8")
     print(f"  ✓ {output_path.relative_to(ROOT)}")
 
