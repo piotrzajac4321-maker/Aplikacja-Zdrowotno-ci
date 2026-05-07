@@ -109,6 +109,11 @@
             <article class="group rounded-2xl bg-white border border-leaf/40 hover:border-sage hover:shadow-md transition overflow-hidden">
               <header class="flex items-center justify-between gap-3 px-5 py-3 bg-gradient-to-r from-leaf/15 to-cream/60 border-b border-leaf/30">
                 <div>
+                  {% set kind_map = {'zielo': ('🌿', 'Zioło'), 'owoc': ('🍎', 'Owoc'), 'warzywo': ('🥕', 'Warzywo'), 'pokarm': ('🍯', 'Pokarm')} %}
+                  {% set kind = herb.kind or 'zielo' %}
+                  <span class="inline-flex items-center gap-1 rounded-full bg-white/80 border border-leaf/40 px-2 py-0.5 text-[10px] font-semibold text-sage-dark uppercase tracking-wider mb-1">
+                    {{ kind_map[kind][0] }} {{ kind_map[kind][1] }}
+                  </span>
                   <h3 class="text-lg md:text-xl font-bold text-sage-dark">{{ herb.name_pl }}</h3>
                   {% if herb.latin_name %}
                     <p class="text-xs italic text-ink/55">{{ herb.latin_name }}</p>

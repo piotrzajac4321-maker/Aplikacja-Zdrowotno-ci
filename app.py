@@ -196,6 +196,25 @@ def search():
     )
 
 
+def fetch_food_swaps_list():
+    if supabase is not None:
+        data = _supabase_or_none(
+            supabase.table("food_swaps").select("*").order("sort_order")
+        )
+        if data:
+            return data
+    return demo_data.food_swaps()
+
+
+@app.route("/zamienniki-zywnosci")
+def food_swaps():
+    return render_template(
+        "zamienniki.html",
+        food_swaps=fetch_food_swaps_list(),
+        categories=fetch_categories(),
+    )
+
+
 @app.route("/o-projekcie")
 def about():
     return render_template("o_projekcie.html", categories=fetch_categories())

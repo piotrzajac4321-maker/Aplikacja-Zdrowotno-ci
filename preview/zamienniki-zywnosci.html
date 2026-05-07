@@ -1,0 +1,812 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zamienniki niezdrowej żywności | ZielonaApteka</title>
+  <meta name="description"
+        content="Zdrowe zamienniki popularnych przetworzonych produktów: olej rzepakowy → łój wołowy, margaryna → masło, cukier → miód." />
+
+  <link rel="icon" href="./static/favicon.ico" />
+
+  <!-- Tailwind via CDN: brak build-stepu -->
+  <link rel="stylesheet" href="./static/css/tailwind.css" />
+  
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./static/css/style.css" />
+</head>
+<body class="min-h-screen bg-cream font-sans text-ink antialiased flex flex-col">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-leaf/40">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center gap-4">
+      <a href="index.html" class="flex items-center gap-2 font-bold text-sage-dark text-lg shrink-0">
+        <img src="./static/img/logo.svg" alt="" class="h-8 w-8" />
+        <span>ZielonaApteka</span>
+      </a>
+      <nav class="ml-auto hidden md:flex items-center gap-5 text-sm font-medium">
+        <a href="index.html" class="hover:text-sage-dark">Strona główna</a>
+        
+          <a href="kategoria-bol.html" class="hover:text-sage-dark">
+            🤕 Ból
+          </a>
+        
+          <a href="kategoria-sen.html" class="hover:text-sage-dark">
+            🌙 Sen i uspokojenie
+          </a>
+        
+          <a href="kategoria-trawienie.html" class="hover:text-sage-dark">
+            🌿 Trawienie
+          </a>
+        
+        <a href="zamienniki-zywnosci.html" class="hover:text-sage-dark">🍽️ Zamienniki</a>
+        <a href="o-projekcie.html" class="hover:text-sage-dark">O projekcie</a>
+      </nav>
+    </div>
+    <div class="mx-auto max-w-6xl px-4 pb-3">
+      <form action="szukaj.html" method="get" class="flex w-full max-w-xl mx-auto">
+  <input
+    type="search"
+    name="q"
+    value=""
+    placeholder="Szukaj np. ibuprofen, melatonina..."
+    class="flex-1 rounded-l-full border border-leaf bg-white px-5 py-3 text-ink placeholder:text-ink/50 focus:outline-none focus:ring-2 focus:ring-sage"
+  />
+  <button
+    type="submit"
+    class="rounded-r-full bg-sage px-6 py-3 font-medium text-white transition hover:bg-sage-dark"
+    aria-label="Szukaj"
+  >
+    🔍
+  </button>
+</form>
+    </div>
+  </header>
+
+  <!-- Disclaimer banner -->
+  <div class="bg-amber-50 text-amber-900 text-xs">
+    <div class="mx-auto max-w-6xl px-4 py-2 text-center">
+      ⓘ Treści mają charakter wyłącznie informacyjny i nie zastępują porady lekarza ani farmaceuty.
+    </div>
+  </div>
+
+  <!-- Main -->
+  <main class="flex-1">
+    
+<!-- Hero -->
+<section class="relative overflow-hidden bg-gradient-to-br from-leaf/30 via-cream to-cream">
+  <div class="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-sage/10 blur-3xl pointer-events-none"></div>
+  <div class="relative mx-auto max-w-6xl px-4 py-12 md:py-16 text-center">
+    <span class="inline-block rounded-full bg-white/70 backdrop-blur px-4 py-1 text-xs font-medium text-sage-dark border border-leaf/40 mb-4">
+      🍽️ Tradycyjne lepsze niż przetworzone
+    </span>
+    <h1 class="text-3xl md:text-5xl font-bold text-sage-dark leading-tight">
+      Zamienniki niezdrowej żywności
+    </h1>
+    <p class="mt-4 text-base md:text-lg text-ink/70 max-w-2xl mx-auto">
+      Sprawdź, czym zastąpić popularne przetworzone produkty na ich tradycyjne, naturalne odpowiedniki.
+    </p>
+  </div>
+</section>
+
+<!-- Disclaimer -->
+<div class="mx-auto max-w-4xl px-4 mt-6">
+  <div class="rounded-2xl bg-amber-50/80 border border-amber-200/60 px-5 py-3 text-sm text-amber-900">
+    ⚠️ <span class="font-semibold">Ważne:</span> Każda zmiana diety wymaga indywidualnego podejścia.
+    Przy chorobach przewlekłych (cukrzyca, alergie, choroby serca) skonsultuj się z lekarzem lub dietetykiem.
+  </div>
+</div>
+
+<!-- Lista zamienników -->
+<section class="mx-auto max-w-6xl px-4 py-10 md:py-14">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
+    
+      <article class="rounded-2xl bg-white border border-leaf/40 shadow-sm hover:shadow-md transition overflow-hidden">
+
+        <!-- Pasek "vs" -->
+        <div class="grid grid-cols-2 relative">
+
+          <!-- Lewa: niezdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-red-50/70 to-amber-50/40">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🛢️</span>
+              <span class="text-[10px] uppercase tracking-wider text-red-700/70 font-bold">Zamiast</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-ink leading-snug">Oleje roślinne rafinowane (rzepakowy, słonecznikowy, sojowy)</h3>
+          </div>
+
+          <!-- Prawa: zdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-cream/60 to-leaf/15 border-l border-leaf/30">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🥩</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage-dark font-bold">Wybierz</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-sage-dark leading-snug">Łój wołowy, smalec, masło klarowane (ghee), oliwa extra virgin</h3>
+          </div>
+
+          <!-- Kółko ze strzałką -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-9 w-9 md:h-11 md:w-11 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-base font-bold shadow-sm select-none">→</span>
+        </div>
+
+        <!-- Szczegóły -->
+        <div class="p-5 md:p-6 space-y-3 text-sm leading-relaxed border-t border-leaf/30">
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-red-100 text-red-900 px-2 py-0.5 text-xs font-semibold mr-1">⚠️ Dlaczego unikać</span>
+              Rafinowane oleje są bogate w niestabilne omega-6 i utleniają się przy smażeniu, generując substancje prozapalne.
+            </p>
+          
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-sage/10 text-sage-dark px-2 py-0.5 text-xs font-semibold mr-1">✅ Dlaczego zdrowiej</span>
+              Tłuszcze nasycone i jednonienasycone są stabilne termicznie. Tradycyjne tłuszcze zwierzęce zawierają witaminy A, D, K2, E.
+            </p>
+          
+          
+            <p class="text-ink/75 text-xs italic border-l-2 border-leaf/50 pl-3">
+              💡 Smalec topiony domowo lub od rzeźnika wystarcza na tygodnie smażenia. Łój ma najwyższy punkt dymienia (ok. 250°C).
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="rounded-2xl bg-white border border-leaf/40 shadow-sm hover:shadow-md transition overflow-hidden">
+
+        <!-- Pasek "vs" -->
+        <div class="grid grid-cols-2 relative">
+
+          <!-- Lewa: niezdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-red-50/70 to-amber-50/40">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🧈</span>
+              <span class="text-[10px] uppercase tracking-wider text-red-700/70 font-bold">Zamiast</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-ink leading-snug">Margaryna</h3>
+          </div>
+
+          <!-- Prawa: zdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-cream/60 to-leaf/15 border-l border-leaf/30">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🐄</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage-dark font-bold">Wybierz</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-sage-dark leading-snug">Masło prawdziwe (najlepiej od krów z trawy)</h3>
+          </div>
+
+          <!-- Kółko ze strzałką -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-9 w-9 md:h-11 md:w-11 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-base font-bold shadow-sm select-none">→</span>
+        </div>
+
+        <!-- Szczegóły -->
+        <div class="p-5 md:p-6 space-y-3 text-sm leading-relaxed border-t border-leaf/30">
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-red-100 text-red-900 px-2 py-0.5 text-xs font-semibold mr-1">⚠️ Dlaczego unikać</span>
+              Pierwsze margaryny zawierały tłuszcze trans. Nawet nowe to mocno przetworzony produkt z dodatkami.
+            </p>
+          
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-sage/10 text-sage-dark px-2 py-0.5 text-xs font-semibold mr-1">✅ Dlaczego zdrowiej</span>
+              Naturalny tłuszcz pełen witamin A, D, K2, kwasu masłowego i CLA.
+            </p>
+          
+          
+            <p class="text-ink/75 text-xs italic border-l-2 border-leaf/50 pl-3">
+              💡 Sprawdź skład: prawdziwe masło to wyłącznie śmietanka (ewentualnie sól).
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="rounded-2xl bg-white border border-leaf/40 shadow-sm hover:shadow-md transition overflow-hidden">
+
+        <!-- Pasek "vs" -->
+        <div class="grid grid-cols-2 relative">
+
+          <!-- Lewa: niezdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-red-50/70 to-amber-50/40">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🍬</span>
+              <span class="text-[10px] uppercase tracking-wider text-red-700/70 font-bold">Zamiast</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-ink leading-snug">Cukier biały rafinowany</h3>
+          </div>
+
+          <!-- Prawa: zdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-cream/60 to-leaf/15 border-l border-leaf/30">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🍯</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage-dark font-bold">Wybierz</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-sage-dark leading-snug">Miód naturalny, ksylitol z brzozy, syrop klonowy, daktyle</h3>
+          </div>
+
+          <!-- Kółko ze strzałką -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-9 w-9 md:h-11 md:w-11 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-base font-bold shadow-sm select-none">→</span>
+        </div>
+
+        <!-- Szczegóły -->
+        <div class="p-5 md:p-6 space-y-3 text-sm leading-relaxed border-t border-leaf/30">
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-red-100 text-red-900 px-2 py-0.5 text-xs font-semibold mr-1">⚠️ Dlaczego unikać</span>
+              Czysta sacharoza pozbawiona składników odżywczych. Powoduje skoki glukozy, sprzyja insulinooporności.
+            </p>
+          
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-sage/10 text-sage-dark px-2 py-0.5 text-xs font-semibold mr-1">✅ Dlaczego zdrowiej</span>
+              Miód zawiera enzymy, antyoksydanty. Ksylitol chroni zęby. Daktyle dają błonnik wraz ze słodyczą.
+            </p>
+          
+          
+            <p class="text-ink/75 text-xs italic border-l-2 border-leaf/50 pl-3">
+              💡 Wciąż używać z umiarem. Najlepsza opcja: stopniowe odzwyczajanie podniebienia od słodkiego.
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="rounded-2xl bg-white border border-leaf/40 shadow-sm hover:shadow-md transition overflow-hidden">
+
+        <!-- Pasek "vs" -->
+        <div class="grid grid-cols-2 relative">
+
+          <!-- Lewa: niezdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-red-50/70 to-amber-50/40">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🥤</span>
+              <span class="text-[10px] uppercase tracking-wider text-red-700/70 font-bold">Zamiast</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-ink leading-snug">Syrop glukozowo-fruktozowy (HFCS)</h3>
+          </div>
+
+          <!-- Prawa: zdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-cream/60 to-leaf/15 border-l border-leaf/30">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🌴</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage-dark font-bold">Wybierz</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-sage-dark leading-snug">Świeże owoce, suszone daktyle, miód</h3>
+          </div>
+
+          <!-- Kółko ze strzałką -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-9 w-9 md:h-11 md:w-11 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-base font-bold shadow-sm select-none">→</span>
+        </div>
+
+        <!-- Szczegóły -->
+        <div class="p-5 md:p-6 space-y-3 text-sm leading-relaxed border-t border-leaf/30">
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-red-100 text-red-900 px-2 py-0.5 text-xs font-semibold mr-1">⚠️ Dlaczego unikać</span>
+              Wysokoprzetworzony, w setkach produktów. Powiązany z otyłością wątroby (NAFLD), cukrzycą.
+            </p>
+          
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-sage/10 text-sage-dark px-2 py-0.5 text-xs font-semibold mr-1">✅ Dlaczego zdrowiej</span>
+              Owoce zawierają cukry razem z błonnikiem i witaminami — organizm trawi wolniej.
+            </p>
+          
+          
+            <p class="text-ink/75 text-xs italic border-l-2 border-leaf/50 pl-3">
+              💡 Czytaj etykiety — HFCS kryje się w chlebach, ketchupach, wędlinach.
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="rounded-2xl bg-white border border-leaf/40 shadow-sm hover:shadow-md transition overflow-hidden">
+
+        <!-- Pasek "vs" -->
+        <div class="grid grid-cols-2 relative">
+
+          <!-- Lewa: niezdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-red-50/70 to-amber-50/40">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🍞</span>
+              <span class="text-[10px] uppercase tracking-wider text-red-700/70 font-bold">Zamiast</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-ink leading-snug">Biały chleb pszenny</h3>
+          </div>
+
+          <!-- Prawa: zdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-cream/60 to-leaf/15 border-l border-leaf/30">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🥖</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage-dark font-bold">Wybierz</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-sage-dark leading-snug">Chleb żytni na prawdziwym zakwasie</h3>
+          </div>
+
+          <!-- Kółko ze strzałką -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-9 w-9 md:h-11 md:w-11 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-base font-bold shadow-sm select-none">→</span>
+        </div>
+
+        <!-- Szczegóły -->
+        <div class="p-5 md:p-6 space-y-3 text-sm leading-relaxed border-t border-leaf/30">
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-red-100 text-red-900 px-2 py-0.5 text-xs font-semibold mr-1">⚠️ Dlaczego unikać</span>
+              Mąka rafinowana — wysoki indeks glikemiczny, brak błonnika, często z dodatkami E472.
+            </p>
+          
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-sage/10 text-sage-dark px-2 py-0.5 text-xs font-semibold mr-1">✅ Dlaczego zdrowiej</span>
+              Fermentacja zakwasem zmniejsza fityniany, obniża IG, daje probiotyki. Żyto = więcej błonnika.
+            </p>
+          
+          
+            <p class="text-ink/75 text-xs italic border-l-2 border-leaf/50 pl-3">
+              💡 Kupuj w piekarniach rzemieślniczych. Skład: zakwas, mąka, woda, sól.
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="rounded-2xl bg-white border border-leaf/40 shadow-sm hover:shadow-md transition overflow-hidden">
+
+        <!-- Pasek "vs" -->
+        <div class="grid grid-cols-2 relative">
+
+          <!-- Lewa: niezdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-red-50/70 to-amber-50/40">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🌭</span>
+              <span class="text-[10px] uppercase tracking-wider text-red-700/70 font-bold">Zamiast</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-ink leading-snug">Parówki, kabanosy, mortadela</h3>
+          </div>
+
+          <!-- Prawa: zdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-cream/60 to-leaf/15 border-l border-leaf/30">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🥓</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage-dark font-bold">Wybierz</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-sage-dark leading-snug">Domowe pieczone mięso, gotowana szynka od rzeźnika</h3>
+          </div>
+
+          <!-- Kółko ze strzałką -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-9 w-9 md:h-11 md:w-11 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-base font-bold shadow-sm select-none">→</span>
+        </div>
+
+        <!-- Szczegóły -->
+        <div class="p-5 md:p-6 space-y-3 text-sm leading-relaxed border-t border-leaf/30">
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-red-100 text-red-900 px-2 py-0.5 text-xs font-semibold mr-1">⚠️ Dlaczego unikać</span>
+              WHO klasyfikuje przetworzone mięso jako kancerogen grupy 1. Azotyny, MOM, polifosforany, dużo soli.
+            </p>
+          
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-sage/10 text-sage-dark px-2 py-0.5 text-xs font-semibold mr-1">✅ Dlaczego zdrowiej</span>
+              Niezprzetworzone mięso = białko + żelazo + B12 + kreatyna. Pieczeń niedzielna na cały tydzień.
+            </p>
+          
+          
+            <p class="text-ink/75 text-xs italic border-l-2 border-leaf/50 pl-3">
+              💡 Skład prawdziwej szynki: mięso 95%, sól, przyprawy.
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="rounded-2xl bg-white border border-leaf/40 shadow-sm hover:shadow-md transition overflow-hidden">
+
+        <!-- Pasek "vs" -->
+        <div class="grid grid-cols-2 relative">
+
+          <!-- Lewa: niezdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-red-50/70 to-amber-50/40">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🥣</span>
+              <span class="text-[10px] uppercase tracking-wider text-red-700/70 font-bold">Zamiast</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-ink leading-snug">Słodzone płatki śniadaniowe</h3>
+          </div>
+
+          <!-- Prawa: zdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-cream/60 to-leaf/15 border-l border-leaf/30">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🌾</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage-dark font-bold">Wybierz</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-sage-dark leading-snug">Owsianka z prawdziwych płatków + owoce + orzechy</h3>
+          </div>
+
+          <!-- Kółko ze strzałką -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-9 w-9 md:h-11 md:w-11 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-base font-bold shadow-sm select-none">→</span>
+        </div>
+
+        <!-- Szczegóły -->
+        <div class="p-5 md:p-6 space-y-3 text-sm leading-relaxed border-t border-leaf/30">
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-red-100 text-red-900 px-2 py-0.5 text-xs font-semibold mr-1">⚠️ Dlaczego unikać</span>
+              Sam cukier z dodatkami — nawet &#39;fitness&#39; płatki mają 20–30% cukru. Skok cukru i głód za 2 godz.
+            </p>
+          
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-sage/10 text-sage-dark px-2 py-0.5 text-xs font-semibold mr-1">✅ Dlaczego zdrowiej</span>
+              Pełnoziarniste płatki to tanie, sycące śniadanie. Beta-glukan obniża cholesterol.
+            </p>
+          
+          
+            <p class="text-ink/75 text-xs italic border-l-2 border-leaf/50 pl-3">
+              💡 Gotuj 5 minut z mlekiem/wodą, dodaj owoce i orzechy. Sycenie na 4 godziny.
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="rounded-2xl bg-white border border-leaf/40 shadow-sm hover:shadow-md transition overflow-hidden">
+
+        <!-- Pasek "vs" -->
+        <div class="grid grid-cols-2 relative">
+
+          <!-- Lewa: niezdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-red-50/70 to-amber-50/40">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🧃</span>
+              <span class="text-[10px] uppercase tracking-wider text-red-700/70 font-bold">Zamiast</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-ink leading-snug">Soki owocowe z kartonu</h3>
+          </div>
+
+          <!-- Prawa: zdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-cream/60 to-leaf/15 border-l border-leaf/30">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🍋</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage-dark font-bold">Wybierz</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-sage-dark leading-snug">Świeży sok wyciskany, woda z cytryną, woda z owocami</h3>
+          </div>
+
+          <!-- Kółko ze strzałką -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-9 w-9 md:h-11 md:w-11 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-base font-bold shadow-sm select-none">→</span>
+        </div>
+
+        <!-- Szczegóły -->
+        <div class="p-5 md:p-6 space-y-3 text-sm leading-relaxed border-t border-leaf/30">
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-red-100 text-red-900 px-2 py-0.5 text-xs font-semibold mr-1">⚠️ Dlaczego unikać</span>
+              Pasteryzowane (utrata witamin), bez błonnika, często z dodatkiem cukru.
+            </p>
+          
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-sage/10 text-sage-dark px-2 py-0.5 text-xs font-semibold mr-1">✅ Dlaczego zdrowiej</span>
+              Świeży sok zachowuje witaminy i enzymy (wypić w 15 min). Woda z cytryną wspiera trawienie.
+            </p>
+          
+          
+            <p class="text-ink/75 text-xs italic border-l-2 border-leaf/50 pl-3">
+              💡 Najlepiej jeść owoce w całości — błonnik spowalnia wchłanianie cukrów.
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="rounded-2xl bg-white border border-leaf/40 shadow-sm hover:shadow-md transition overflow-hidden">
+
+        <!-- Pasek "vs" -->
+        <div class="grid grid-cols-2 relative">
+
+          <!-- Lewa: niezdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-red-50/70 to-amber-50/40">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🧂</span>
+              <span class="text-[10px] uppercase tracking-wider text-red-700/70 font-bold">Zamiast</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-ink leading-snug">Sól warzona rafinowana</h3>
+          </div>
+
+          <!-- Prawa: zdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-cream/60 to-leaf/15 border-l border-leaf/30">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">⛏️</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage-dark font-bold">Wybierz</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-sage-dark leading-snug">Sól himalajska, sól kłodawska, sól szara</h3>
+          </div>
+
+          <!-- Kółko ze strzałką -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-9 w-9 md:h-11 md:w-11 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-base font-bold shadow-sm select-none">→</span>
+        </div>
+
+        <!-- Szczegóły -->
+        <div class="p-5 md:p-6 space-y-3 text-sm leading-relaxed border-t border-leaf/30">
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-red-100 text-red-900 px-2 py-0.5 text-xs font-semibold mr-1">⚠️ Dlaczego unikać</span>
+              Czysty NaCl pozbawiony mikroelementów. Często z antyzbrylaczami E535/E536.
+            </p>
+          
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-sage/10 text-sage-dark px-2 py-0.5 text-xs font-semibold mr-1">✅ Dlaczego zdrowiej</span>
+              Sole nieoczyszczane zachowują śladowe minerały. Polska sól kłodawska to 98% NaCl + cenne dodatki.
+            </p>
+          
+          
+            <p class="text-ink/75 text-xs italic border-l-2 border-leaf/50 pl-3">
+              💡 Solenie z umiarem — niezależnie od rodzaju, do 5 g dziennie (1 łyżeczka).
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="rounded-2xl bg-white border border-leaf/40 shadow-sm hover:shadow-md transition overflow-hidden">
+
+        <!-- Pasek "vs" -->
+        <div class="grid grid-cols-2 relative">
+
+          <!-- Lewa: niezdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-red-50/70 to-amber-50/40">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">📦</span>
+              <span class="text-[10px] uppercase tracking-wider text-red-700/70 font-bold">Zamiast</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-ink leading-snug">Mleko UHT (długoterminowe)</h3>
+          </div>
+
+          <!-- Prawa: zdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-cream/60 to-leaf/15 border-l border-leaf/30">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🥛</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage-dark font-bold">Wybierz</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-sage-dark leading-snug">Mleko świeże od krowy, od lokalnego rolnika</h3>
+          </div>
+
+          <!-- Kółko ze strzałką -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-9 w-9 md:h-11 md:w-11 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-base font-bold shadow-sm select-none">→</span>
+        </div>
+
+        <!-- Szczegóły -->
+        <div class="p-5 md:p-6 space-y-3 text-sm leading-relaxed border-t border-leaf/30">
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-red-100 text-red-900 px-2 py-0.5 text-xs font-semibold mr-1">⚠️ Dlaczego unikać</span>
+              Wysokotemperaturowa pasteryzacja (140°C, 4 sek.) niszczy część witamin i naturalnych enzymów.
+            </p>
+          
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-sage/10 text-sage-dark px-2 py-0.5 text-xs font-semibold mr-1">✅ Dlaczego zdrowiej</span>
+              Mleko świeże ma więcej witamin, enzymów i probiotyków. Mleko od krów z trawy = więcej omega-3 i CLA.
+            </p>
+          
+          
+            <p class="text-ink/75 text-xs italic border-l-2 border-leaf/50 pl-3">
+              💡 Lokalne gospodarstwa, mleko prosto od rolnika (po zagotowaniu). Mlekomaty w wielu miastach.
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="rounded-2xl bg-white border border-leaf/40 shadow-sm hover:shadow-md transition overflow-hidden">
+
+        <!-- Pasek "vs" -->
+        <div class="grid grid-cols-2 relative">
+
+          <!-- Lewa: niezdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-red-50/70 to-amber-50/40">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🍓</span>
+              <span class="text-[10px] uppercase tracking-wider text-red-700/70 font-bold">Zamiast</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-ink leading-snug">Jogurty owocowe słodzone</h3>
+          </div>
+
+          <!-- Prawa: zdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-cream/60 to-leaf/15 border-l border-leaf/30">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🥄</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage-dark font-bold">Wybierz</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-sage-dark leading-snug">Jogurt naturalny + świeże owoce + miód lub orzechy</h3>
+          </div>
+
+          <!-- Kółko ze strzałką -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-9 w-9 md:h-11 md:w-11 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-base font-bold shadow-sm select-none">→</span>
+        </div>
+
+        <!-- Szczegóły -->
+        <div class="p-5 md:p-6 space-y-3 text-sm leading-relaxed border-t border-leaf/30">
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-red-100 text-red-900 px-2 py-0.5 text-xs font-semibold mr-1">⚠️ Dlaczego unikać</span>
+              Mała ilość owoców, dużo cukru (10–15 g/100 g), syrop glukozowo-fruktozowy, barwniki.
+            </p>
+          
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-sage/10 text-sage-dark px-2 py-0.5 text-xs font-semibold mr-1">✅ Dlaczego zdrowiej</span>
+              Jogurt naturalny dostarcza białka i probiotyków bez zbędnych dodatków.
+            </p>
+          
+          
+            <p class="text-ink/75 text-xs italic border-l-2 border-leaf/50 pl-3">
+              💡 Najlepiej grecki/bałkański — więcej białka. Lub kefir/maślanka — bogatsze w probiotyki.
+            </p>
+          
+        </div>
+      </article>
+    
+      <article class="rounded-2xl bg-white border border-leaf/40 shadow-sm hover:shadow-md transition overflow-hidden">
+
+        <!-- Pasek "vs" -->
+        <div class="grid grid-cols-2 relative">
+
+          <!-- Lewa: niezdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-red-50/70 to-amber-50/40">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🟨</span>
+              <span class="text-[10px] uppercase tracking-wider text-red-700/70 font-bold">Zamiast</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-ink leading-snug">Ser topiony w plasterkach</h3>
+          </div>
+
+          <!-- Prawa: zdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-cream/60 to-leaf/15 border-l border-leaf/30">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">🧀</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage-dark font-bold">Wybierz</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-sage-dark leading-snug">Prawdziwy ser żółty dojrzewający, ser kozi, twaróg</h3>
+          </div>
+
+          <!-- Kółko ze strzałką -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-9 w-9 md:h-11 md:w-11 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-base font-bold shadow-sm select-none">→</span>
+        </div>
+
+        <!-- Szczegóły -->
+        <div class="p-5 md:p-6 space-y-3 text-sm leading-relaxed border-t border-leaf/30">
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-red-100 text-red-900 px-2 py-0.5 text-xs font-semibold mr-1">⚠️ Dlaczego unikać</span>
+              Mieszanka serowa z fosforanami, emulgatorami, solą, barwnikami. &#39;Ser&#39; często mniejszość składu.
+            </p>
+          
+          
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-sage/10 text-sage-dark px-2 py-0.5 text-xs font-semibold mr-1">✅ Dlaczego zdrowiej</span>
+              Tradycyjny ser dojrzewający to skoncentrowane białko, wapń, witaminy K2.
+            </p>
+          
+          
+            <p class="text-ink/75 text-xs italic border-l-2 border-leaf/50 pl-3">
+              💡 Skład: pierwsze &#39;mleko&#39; lub &#39;ser&#39; = prawdziwy produkt. &#39;Topione&#39; i &#39;seropodobne&#39; pomijać.
+            </p>
+          
+        </div>
+      </article>
+    
+  </div>
+</section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-16 bg-gradient-to-br from-sage-dark to-sage text-cream">
+    <div class="mx-auto max-w-6xl px-4 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+        <!-- Logo + opis -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 font-bold text-xl">
+            <img src="./static/img/logo.svg" alt="" class="h-8 w-8 bg-white/90 rounded-full p-1" />
+            <span>ZielonaApteka</span>
+          </div>
+          <p class="mt-3 text-sm text-cream/80 max-w-md leading-relaxed">
+            Portal edukacyjny zestawiający popularne leki apteczne z ich tradycyjnymi, ziołowymi odpowiednikami.
+            Treści informacyjne — nie zastępują porady lekarza.
+          </p>
+        </div>
+
+        <!-- Kategorie -->
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-cream mb-3">Kategorie</h3>
+          <ul class="space-y-2 text-sm">
+            
+              <li>
+                <a href="kategoria-bol.html"
+                   class="text-cream/80 hover:text-white hover:underline">
+                  🤕 Ból
+                </a>
+              </li>
+            
+              <li>
+                <a href="kategoria-sen.html"
+                   class="text-cream/80 hover:text-white hover:underline">
+                  🌙 Sen i uspokojenie
+                </a>
+              </li>
+            
+              <li>
+                <a href="kategoria-trawienie.html"
+                   class="text-cream/80 hover:text-white hover:underline">
+                  🌿 Trawienie
+                </a>
+              </li>
+            
+          </ul>
+        </div>
+
+        <!-- Linki -->
+        <div>
+          <h3 class="text-sm font-semibold uppercase tracking-wider text-cream mb-3">Portal</h3>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="text-cream/80 hover:text-white hover:underline">Strona główna</a></li>
+            <li><a href="zamienniki-zywnosci.html" class="text-cream/80 hover:text-white hover:underline">🍽️ Zamienniki żywności</a></li>
+            <li><a href="o-projekcie.html" class="text-cream/80 hover:text-white hover:underline">O projekcie</a></li>
+            <li><a href="szukaj.html" class="text-cream/80 hover:text-white hover:underline">Wyszukiwarka</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Newsletter -->
+      <div class="mt-10 pt-8 border-t border-cream/15">
+        <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] items-center gap-4 max-w-3xl mx-auto">
+          <div>
+            <h3 class="text-base font-semibold text-white">📬 Bądź na bieżąco</h3>
+            <p class="text-sm text-cream/70 mt-1">Nowe leki i zioła w bazie — bez spamu.</p>
+          </div>
+          <form action="#newsletter" method="post" class="flex flex-col sm:flex-row gap-2 w-full md:w-auto" onsubmit="return false;">
+            <label class="sr-only" for="newsletter-email">Email</label>
+            <input id="newsletter-email" type="email" required placeholder="twoj@email.pl"
+                   class="rounded-full px-4 py-2 text-sm text-ink placeholder:text-ink/40 focus:outline-none focus:ring-2 focus:ring-leaf bg-white min-w-[12rem]" />
+            <button type="submit"
+                    class="rounded-full bg-leaf text-sage-dark px-5 py-2 text-sm font-semibold hover:bg-cream transition">
+              Zapisz się
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Mini-disclaimer + copyright -->
+      <div class="mt-8 pt-6 border-t border-cream/15 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-cream/60">
+        <p>© 2026 ZielonaApteka — projekt edukacyjny.</p>
+        <p>ⓘ Dane wyłącznie informacyjne. Skonsultuj się z lekarzem lub farmaceutą.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

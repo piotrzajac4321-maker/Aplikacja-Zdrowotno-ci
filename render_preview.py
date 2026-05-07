@@ -38,6 +38,8 @@ def url_for(endpoint: str, **kwargs) -> str:
         return "szukaj.html"
     if endpoint == "about":
         return "o-projekcie.html"
+    if endpoint == "food_swaps":
+        return "zamienniki-zywnosci.html"
     return "#"
 
 
@@ -146,6 +148,12 @@ def main() -> None:
     # 5. Strony statyczne
     render("o_projekcie.html", PREVIEW / "o-projekcie.html", categories=cats)
     render("404.html",         PREVIEW / "404.html",         categories=cats)
+    render(
+        "zamienniki.html",
+        PREVIEW / "zamienniki-zywnosci.html",
+        food_swaps=demo_data.food_swaps(),
+        categories=cats,
+    )
 
     print(f"\nGotowe! Otwórz w przeglądarce:\n  {PREVIEW / 'index.html'}")
 

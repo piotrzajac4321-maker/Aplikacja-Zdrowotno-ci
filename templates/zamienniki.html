@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}Zamienniki niezdrowej żywności | {{ site_name }}{% endblock %}
+{% block meta_description %}Zdrowe zamienniki popularnych przetworzonych produktów: olej rzepakowy → łój wołowy, margaryna → masło, cukier → miód.{% endblock %}
+
+{% block content %}
+<!-- Hero -->
+<section class="relative overflow-hidden bg-gradient-to-br from-leaf/30 via-cream to-cream">
+  <div class="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-sage/10 blur-3xl pointer-events-none"></div>
+  <div class="relative mx-auto max-w-6xl px-4 py-12 md:py-16 text-center">
+    <span class="inline-block rounded-full bg-white/70 backdrop-blur px-4 py-1 text-xs font-medium text-sage-dark border border-leaf/40 mb-4">
+      🍽️ Tradycyjne lepsze niż przetworzone
+    </span>
+    <h1 class="text-3xl md:text-5xl font-bold text-sage-dark leading-tight">
+      Zamienniki niezdrowej żywności
+    </h1>
+    <p class="mt-4 text-base md:text-lg text-ink/70 max-w-2xl mx-auto">
+      Sprawdź, czym zastąpić popularne przetworzone produkty na ich tradycyjne, naturalne odpowiedniki.
+    </p>
+  </div>
+</section>
+
+<!-- Disclaimer -->
+<div class="mx-auto max-w-4xl px-4 mt-6">
+  <div class="rounded-2xl bg-amber-50/80 border border-amber-200/60 px-5 py-3 text-sm text-amber-900">
+    ⚠️ <span class="font-semibold">Ważne:</span> Każda zmiana diety wymaga indywidualnego podejścia.
+    Przy chorobach przewlekłych (cukrzyca, alergie, choroby serca) skonsultuj się z lekarzem lub dietetykiem.
+  </div>
+</div>
+
+<!-- Lista zamienników -->
+<section class="mx-auto max-w-6xl px-4 py-10 md:py-14">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6">
+    {% for swap in food_swaps %}
+      <article class="rounded-2xl bg-white border border-leaf/40 shadow-sm hover:shadow-md transition overflow-hidden">
+
+        <!-- Pasek "vs" -->
+        <div class="grid grid-cols-2 relative">
+
+          <!-- Lewa: niezdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-red-50/70 to-amber-50/40">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">{{ swap.icon_unhealthy or '❌' }}</span>
+              <span class="text-[10px] uppercase tracking-wider text-red-700/70 font-bold">Zamiast</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-ink leading-snug">{{ swap.unhealthy_name_pl }}</h3>
+          </div>
+
+          <!-- Prawa: zdrowy -->
+          <div class="p-5 md:p-6 bg-gradient-to-br from-cream/60 to-leaf/15 border-l border-leaf/30">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-2xl md:text-3xl" aria-hidden="true">{{ swap.icon_healthy or '✅' }}</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage-dark font-bold">Wybierz</span>
+            </div>
+            <h3 class="font-bold text-base md:text-lg text-sage-dark leading-snug">{{ swap.healthy_name_pl }}</h3>
+          </div>
+
+          <!-- Kółko ze strzałką -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-9 w-9 md:h-11 md:w-11 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-base font-bold shadow-sm select-none">→</span>
+        </div>
+
+        <!-- Szczegóły -->
+        <div class="p-5 md:p-6 space-y-3 text-sm leading-relaxed border-t border-leaf/30">
+          {% if swap.unhealthy_why_pl %}
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-red-100 text-red-900 px-2 py-0.5 text-xs font-semibold mr-1">⚠️ Dlaczego unikać</span>
+              {{ swap.unhealthy_why_pl }}
+            </p>
+          {% endif %}
+          {% if swap.healthy_why_pl %}
+            <p class="text-ink/80">
+              <span class="inline-block rounded bg-sage/10 text-sage-dark px-2 py-0.5 text-xs font-semibold mr-1">✅ Dlaczego zdrowiej</span>
+              {{ swap.healthy_why_pl }}
+            </p>
+          {% endif %}
+          {% if swap.rationale_pl %}
+            <p class="text-ink/75 text-xs italic border-l-2 border-leaf/50 pl-3">
+              💡 {{ swap.rationale_pl }}
+            </p>
+          {% endif %}
+        </div>
+      </article>
+    {% else %}
+      <p class="col-span-full text-center text-ink/60 py-10">
+        Lista zamienników będzie wkrótce uzupełniona.
+      </p>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
