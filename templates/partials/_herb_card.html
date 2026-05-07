@@ -1,0 +1,36 @@
+{# herb: dict ze slug, name_pl, latin_name, description_pl, how_to_use_pl, cautions_pl,
+   opcjonalnie rationale_pl + strength (z medication_herbs) #}
+<article class="rounded-2xl border border-leaf/60 bg-cream/50 p-5 shadow-sm">
+  <header class="flex items-baseline justify-between gap-3">
+    <h3 class="text-lg font-semibold text-sage-dark">🌿 {{ herb.name_pl }}</h3>
+    {% if herb.strength %}
+      <span class="text-xs text-ink/50" title="Siła rekomendacji 1-5">
+        {% for _ in range(herb.strength) %}●{% endfor %}{% for _ in range(5 - herb.strength) %}○{% endfor %}
+      </span>
+    {% endif %}
+  </header>
+
+  {% if herb.latin_name %}
+    <p class="text-xs italic text-ink/50">{{ herb.latin_name }}</p>
+  {% endif %}
+
+  {% if herb.rationale_pl %}
+    <p class="mt-3 text-sm text-ink/80">
+      <span class="font-medium text-sage-dark">Dlaczego: </span>{{ herb.rationale_pl }}
+    </p>
+  {% elif herb.description_pl %}
+    <p class="mt-3 text-sm text-ink/80">{{ herb.description_pl }}</p>
+  {% endif %}
+
+  {% if herb.how_to_use_pl %}
+    <p class="mt-3 text-sm text-ink/80">
+      <span class="font-medium">Jak stosować: </span>{{ herb.how_to_use_pl }}
+    </p>
+  {% endif %}
+
+  {% if herb.cautions_pl %}
+    <p class="mt-3 rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-900">
+      ⚠️ {{ herb.cautions_pl }}
+    </p>
+  {% endif %}
+</article>

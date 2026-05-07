@@ -1,0 +1,16 @@
+<form action="{{ url_for('search') }}" method="get" class="flex w-full max-w-xl mx-auto">
+  <input
+    type="search"
+    name="q"
+    value="{{ q or '' }}"
+    placeholder="Szukaj np. ibuprofen, melatonina..."
+    class="flex-1 rounded-l-full border border-leaf bg-white px-5 py-3 text-ink placeholder:text-ink/50 focus:outline-none focus:ring-2 focus:ring-sage"
+  />
+  <button
+    type="submit"
+    class="rounded-r-full bg-sage px-6 py-3 font-medium text-white transition hover:bg-sage-dark"
+    aria-label="Szukaj"
+  >
+    🔍
+  </button>
+</form>

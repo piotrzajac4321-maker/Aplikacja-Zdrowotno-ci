@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}{{ site_name }} — naturalne alternatywy dla popularnych leków{% endblock %}</title>
+  <meta name="description"
+        content="{% block meta_description %}Sprawdź, jakie zioła mogą wspierać działanie popularnych leków aptecznych. Portal informacyjny.{% endblock %}" />
+
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+
+  <!-- Tailwind via CDN: brak build-stepu -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage:       '#4A7C59',
+            'sage-dark':'#2F5740',
+            leaf:       '#A8C686',
+            cream:      '#F6F4EE',
+            ink:        '#1F2A24',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body class="min-h-screen bg-cream font-sans text-ink antialiased flex flex-col">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-leaf/40">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center gap-4">
+      <a href="{{ url_for('index') }}" class="flex items-center gap-2 font-bold text-sage-dark text-lg shrink-0">
+        <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="" class="h-8 w-8" />
+        <span>{{ site_name }}</span>
+      </a>
+      <nav class="ml-auto hidden md:flex items-center gap-5 text-sm font-medium">
+        <a href="{{ url_for('index') }}" class="hover:text-sage-dark">Strona główna</a>
+        {% for cat in categories or [] %}
+          <a href="{{ url_for('category_view', slug=cat.slug) }}" class="hover:text-sage-dark">
+            {{ cat.icon }} {{ cat.name_pl }}
+          </a>
+        {% endfor %}
+        <a href="{{ url_for('about') }}" class="hover:text-sage-dark">O projekcie</a>
+      </nav>
+    </div>
+    <div class="mx-auto max-w-6xl px-4 pb-3">
+      {% include "partials/_search_bar.html" %}
+    </div>
+  </header>
+
+  <!-- Disclaimer banner -->
+  <div class="bg-amber-50 text-amber-900 text-xs">
+    <div class="mx-auto max-w-6xl px-4 py-2 text-center">
+      ⓘ Treści mają charakter wyłącznie informacyjny i nie zastępują porady lekarza ani farmaceuty.
+    </div>
+  </div>
+
+  <!-- Main -->
+  <main class="flex-1">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-12 border-t border-leaf/40 bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-ink/60">
+      <p>© 2026 {{ site_name }} — projekt edukacyjny.</p>
+      <p>Dane wyłącznie informacyjne. Skonsultuj się z lekarzem lub farmaceutą.</p>
+      <a href="{{ url_for('about') }}" class="hover:text-sage-dark">O projekcie</a>
+    </div>
+  </footer>
+
+</body>
+</html>

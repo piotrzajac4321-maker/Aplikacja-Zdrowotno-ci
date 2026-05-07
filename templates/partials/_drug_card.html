@@ -1,0 +1,27 @@
+{# medication: dict z polami slug, name_pl, purpose_pl, brand_examples, categories(?), herb_count(?) #}
+<a href="{{ url_for('medication_detail', slug=medication.slug) }}"
+   class="group flex h-full flex-col rounded-2xl border border-leaf/40 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-sage hover:shadow-md">
+  <div class="mb-3 flex items-center gap-2 text-2xl">
+    <span aria-hidden="true">💊</span>
+    {% if medication.categories and medication.categories.icon %}
+      <span aria-hidden="true">{{ medication.categories.icon }}</span>
+    {% endif %}
+  </div>
+  <h3 class="text-lg font-semibold text-ink group-hover:text-sage-dark">
+    {{ medication.name_pl }}
+  </h3>
+  {% if medication.purpose_pl %}
+    <p class="mt-1 text-sm text-ink/70">{{ medication.purpose_pl }}</p>
+  {% endif %}
+  {% if medication.brand_examples %}
+    <p class="mt-2 text-xs text-ink/50">Marki: {{ medication.brand_examples }}</p>
+  {% endif %}
+  <div class="mt-auto pt-4 flex items-center justify-between">
+    {% if medication.herb_count is defined and medication.herb_count %}
+      <span class="text-xs text-sage-dark">🌿 {{ medication.herb_count }} alternatyw{% if medication.herb_count == 1 %}a{% elif medication.herb_count in [2,3,4] %}y{% else %}{% endif %}</span>
+    {% else %}
+      <span></span>
+    {% endif %}
+    <span class="text-sm font-medium text-sage-dark group-hover:underline">Szczegóły →</span>
+  </div>
+</a>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Nie znaleziono | {{ site_name }}{% endblock %}
+
+{% block content %}
+<div class="mx-auto max-w-2xl px-4 py-20 text-center">
+  <div class="text-6xl mb-4">🌱</div>
+  <h1 class="text-3xl font-bold text-sage-dark">Nie znaleziono strony</h1>
+  <p class="mt-3 text-ink/70">Strona, której szukasz, nie istnieje albo została przeniesiona.</p>
+
+  <div class="mt-8">
+    {% include "partials/_search_bar.html" %}
+  </div>
+
+  <div class="mt-8">
+    <a href="{{ url_for('index') }}"
+       class="inline-block rounded-full bg-sage px-6 py-2.5 font-medium text-white hover:bg-sage-dark transition">
+      ← Wróć na stronę główną
+    </a>
+  </div>
+</div>
+{% endblock %}

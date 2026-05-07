@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}O projekcie | {{ site_name }}{% endblock %}
+
+{% block content %}
+<div class="mx-auto max-w-3xl px-4 py-10 prose prose-sage">
+  <h1 class="text-3xl font-bold text-sage-dark mb-4">O projekcie</h1>
+
+  <p class="text-ink/80">
+    <strong>{{ site_name }}</strong> to projekt edukacyjny, który zestawia popularne leki dostępne w aptekach
+    z ich tradycyjnymi, ziołowymi odpowiednikami. Celem jest pokazanie naturalnych korzeni współczesnej farmakologii
+    oraz ułatwienie dyskusji z lekarzem lub farmaceutą o opcjach wsparcia ziołowego.
+  </p>
+
+  <h2 class="text-xl font-semibold text-sage-dark mt-8 mb-2">Skąd dane?</h2>
+  <p class="text-ink/80">
+    Opisy ziół opieramy o ogólnodostępne źródła: monografie ESCOP, publikacje PZH oraz polską literaturę zielarską.
+    Zachęcamy do weryfikacji we własnym zakresie.
+  </p>
+
+  <h2 class="text-xl font-semibold text-sage-dark mt-8 mb-2">Ważne zastrzeżenie</h2>
+  <div class="rounded-2xl bg-amber-50 p-4 text-amber-900 text-sm">
+    <p>
+      ⚠️ Treści w serwisie mają charakter <strong>wyłącznie informacyjny</strong> i <strong>nie zastępują</strong>
+      porady lekarza ani farmaceuty.
+    </p>
+    <ul class="list-disc ml-5 mt-2 space-y-1">
+      <li>Nie odstawiaj leków bez konsultacji z lekarzem.</li>
+      <li>Zioła mogą wchodzić w interakcje z lekami i mieć przeciwwskazania (ciąża, karmienie, dzieci).</li>
+      <li>W razie wątpliwości skonsultuj się ze specjalistą.</li>
+    </ul>
+  </div>
+
+  <h2 class="text-xl font-semibold text-sage-dark mt-8 mb-2">Stack technologiczny</h2>
+  <ul class="list-disc ml-5 text-ink/80">
+    <li>Python 3 + Flask</li>
+    <li>Supabase (PostgreSQL)</li>
+    <li>Tailwind CSS</li>
+    <li>Hosting: Render.com</li>
+  </ul>
+</div>
+{% endblock %}
