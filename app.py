@@ -1,84 +1,131 @@
-"""ZielonaApteka — aplikacja Flask pokazująca leki i ich ziołowe zamienniki."""
+"""ZielonaApteka — aplikacja Flask pokazująca leki i ich ziołowe zamienniki.
+
+Każda funkcja pobierająca dane próbuje najpierw Supabase, a w razie problemu
+(brak klienta, błąd sieciowy, pusta baza) automatycznie używa danych demo
+z modułu ``demo_data``. Dzięki temu aplikacja zawsze coś pokazuje, nawet jeśli
+Supabase nie jest jeszcze skonfigurowany.
+"""
+import logging
 import os
 
 from flask import Flask, abort, render_template, request
 
-from supabase_client import supabase
+import demo_data
+from supabase_client import init_error, supabase
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev-secret-change-me")
+
+log = logging.getLogger(__name__)
+
+
+def _supabase_or_none(query):
+    """Wykonaj zapytanie Supabase, zwróć dane lub None gdy błąd."""
+    if supabase is None:
+        return None
+    try:
+        res = query.execute()
+        return res.data
+    except Exception as exc:
+        log.warning("Zapytanie Supabase nieudane (%s) — używam danych demo.", exc)
+        return None
 
 
 # --- Helpery zapytań ---------------------------------------------------------
 
 def fetch_categories():
-    res = (
-        supabase.table("categories")
-        .select("*")
-        .order("sort_order")
-        .execute()
-    )
-    return res.data or []
+    if supabase is not None:
+        data = _supabase_or_none(
+            supabase.table("categories").select("*").order("sort_order")
+        )
+        if data:
+            return data
+    return demo_data.categories()
 
 
 def fetch_category(slug: str):
-    res = (
-        supabase.table("categories")
-        .select("*")
-        .eq("slug", slug)
-        .limit(1)
-        .execute()
-    )
-    return (res.data or [None])[0]
+    if supabase is not None:
+        data = _supabase_or_none(
+            supabase.table("categories").select("*").eq("slug", slug).limit(1)
+        )
+        if data:
+            return data[0]
+    return demo_data.category(slug)
 
 
 def fetch_medications_by_category(category_id: int):
-    res = (
-        supabase.table("medications")
-        .select("*, medication_herbs(herb_id)")
-        .eq("category_id", category_id)
-        .order("name_pl")
-        .execute()
-    )
-    meds = res.data or []
-    for m in meds:
-        m["herb_count"] = len(m.get("medication_herbs") or [])
-    return meds
+    if supabase is not None:
+        data = _supabase_or_none(
+            supabase.table("medications")
+            .select("*, medication_herbs(herb_id)")
+            .eq("category_id", category_id)
+            .order("name_pl")
+        )
+        if data is not None:
+            for m in data:
+                m["herb_count"] = len(m.get("medication_herbs") or [])
+            if data:
+                return data
+    return demo_data.medications_by_category(category_id)
 
 
 def fetch_medication_detail(slug: str):
-    res = (
-        supabase.table("medications")
-        .select(
-            "*, categories(*), "
-            "medication_herbs(rationale_pl, strength, herbs(*))"
+    if supabase is not None:
+        data = _supabase_or_none(
+            supabase.table("medications")
+            .select(
+                "*, categories(*), "
+                "medication_herbs(rationale_pl, strength, herbs(*))"
+            )
+            .eq("slug", slug)
+            .limit(1)
         )
-        .eq("slug", slug)
-        .limit(1)
-        .execute()
-    )
-    return (res.data or [None])[0]
+        if data:
+            return data[0]
+    return demo_data.medication_detail(slug)
 
 
 def fetch_featured_pairs(limit: int = 4):
     """Kilka pierwszych leków + ich pierwsze zioło — do sekcji 'Popularne zestawienia'."""
-    res = (
-        supabase.table("medications")
-        .select(
-            "id, slug, name_pl, purpose_pl, "
-            "categories(slug, name_pl, icon), "
-            "medication_herbs(herbs(slug, name_pl, latin_name))"
+    if supabase is not None:
+        data = _supabase_or_none(
+            supabase.table("medications")
+            .select(
+                "id, slug, name_pl, purpose_pl, "
+                "categories(slug, name_pl, icon), "
+                "medication_herbs(herbs(slug, name_pl, latin_name))"
+            )
+            .order("id")
+            .limit(limit)
         )
-        .order("id")
-        .limit(limit)
-        .execute()
-    )
-    pairs = []
-    for med in res.data or []:
-        herbs = [link["herbs"] for link in (med.get("medication_herbs") or []) if link.get("herbs")]
-        if herbs:
-            pairs.append({"medication": med, "herb": herbs[0]})
-    return pairs
+        if data:
+            pairs = []
+            for med in data:
+                herbs = [link["herbs"] for link in (med.get("medication_herbs") or []) if link.get("herbs")]
+                if herbs:
+                    pairs.append({"medication": med, "herb": herbs[0]})
+            if pairs:
+                return pairs
+    return demo_data.featured_pairs(limit=limit)
+
+
+def search_medications(q: str):
+    if supabase is not None:
+        pattern = f"%{q}%"
+        data = _supabase_or_none(
+            supabase.table("medications")
+            .select("*, categories(slug, name_pl, icon)")
+            .or_(
+                f"name_pl.ilike.{pattern},"
+                f"active_substance.ilike.{pattern},"
+                f"brand_examples.ilike.{pattern}"
+            )
+            .order("name_pl")
+            .limit(50)
+        )
+        if data is not None:
+            return data
+    return demo_data.search(q)
 
 
 # --- Routes ------------------------------------------------------------------
@@ -126,18 +173,7 @@ def category_view(slug):
 @app.route("/szukaj")
 def search():
     q = (request.args.get("q") or "").strip()
-    medications = []
-    if q:
-        pattern = f"%{q}%"
-        res = (
-            supabase.table("medications")
-            .select("*, categories(slug, name_pl, icon)")
-            .or_(f"name_pl.ilike.{pattern},active_substance.ilike.{pattern},brand_examples.ilike.{pattern}")
-            .order("name_pl")
-            .limit(50)
-            .execute()
-        )
-        medications = res.data or []
+    medications = search_medications(q) if q else []
     return render_template(
         "search_results.html",
         q=q,
@@ -154,6 +190,35 @@ def about():
 @app.route("/healthz")
 def healthz():
     return {"status": "ok"}, 200
+
+
+@app.route("/debug")
+def debug():
+    """Endpoint diagnostyczny — pokazuje skąd biorą się dane i co z konfiguracji."""
+    cats = fetch_categories()
+    using_supabase = supabase is not None
+    sample_query_ok = False
+    sample_err = None
+    if supabase is not None:
+        try:
+            res = supabase.table("categories").select("slug").limit(1).execute()
+            sample_query_ok = bool(res.data)
+        except Exception as exc:
+            sample_err = repr(exc)
+    return {
+        "supabase_client_initialized": using_supabase,
+        "supabase_init_error": init_error,
+        "supabase_sample_query_ok": sample_query_ok,
+        "supabase_sample_query_error": sample_err,
+        "categories_count": len(cats),
+        "categories_first": cats[0] if cats else None,
+        "data_source": "supabase" if (using_supabase and sample_query_ok) else "demo",
+        "env_vars_present": {
+            "SUPABASE_URL": bool(os.environ.get("SUPABASE_URL")),
+            "SUPABASE_KEY": bool(os.environ.get("SUPABASE_KEY")),
+            "SECRET_KEY": bool(os.environ.get("SECRET_KEY")),
+        },
+    }, 200
 
 
 @app.errorhandler(404)
