@@ -130,12 +130,26 @@ def search_medications(q: str):
 
 # --- Routes ------------------------------------------------------------------
 
+def fetch_stats():
+    """Liczby do paska statystyk na stronie głównej."""
+    if supabase is not None:
+        try:
+            meds = supabase.table("medications").select("id", count="exact").execute()
+            herbs = supabase.table("herbs").select("id", count="exact").execute()
+            if meds.count is not None and herbs.count is not None:
+                return {"medications": meds.count, "herbs": herbs.count}
+        except Exception as exc:
+            log.warning("Statystyki Supabase nieudane (%s) — używam danych demo.", exc)
+    return {"medications": len(demo_data.MEDICATIONS), "herbs": len(demo_data.HERBS)}
+
+
 @app.route("/")
 def index():
     return render_template(
         "index.html",
         categories=fetch_categories(),
         featured_pairs=fetch_featured_pairs(),
+        stats=fetch_stats(),
     )
 
 

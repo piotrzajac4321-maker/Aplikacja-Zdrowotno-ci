@@ -99,6 +99,7 @@ def main() -> None:
         PREVIEW / "index.html",
         categories=cats,
         featured_pairs=demo_data.featured_pairs(limit=4),
+        stats={"medications": len(demo_data.MEDICATIONS), "herbs": len(demo_data.HERBS)},
     )
 
     # 2. Strony szczegółów dla każdego leku
