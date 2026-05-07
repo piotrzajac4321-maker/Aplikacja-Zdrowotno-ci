@@ -30,6 +30,8 @@ PAGES = [
     ("szukaj-melat.html",     "09-wyszukiwanie",              1280, 900, True),
     ("o-projekcie.html",      "10-o-projekcie",               1280, 900, True),
     ("404.html",              "11-strona-404",                1280, 900, True),
+    ("zamienniki-zywnosci.html","12-zamienniki-zywnosci",     1280, 900, True),
+    ("lek-loperamid.html",    "13-lek-z-owocami-warzywami",   1280, 900, True),
 ]
 
 CHROME = "/opt/pw-browsers/chromium-1194/chrome-linux/chrome"
