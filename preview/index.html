@@ -77,8 +77,15 @@
   <main class="flex-1">
     
 <!-- Hero -->
-<section class="bg-gradient-to-br from-leaf/30 via-cream to-cream">
-  <div class="mx-auto max-w-6xl px-4 py-14 md:py-20 text-center">
+<section class="relative overflow-hidden bg-gradient-to-br from-leaf/40 via-cream to-cream">
+  <!-- dekoracyjne plamy w tle -->
+  <div class="absolute -top-20 -right-20 h-72 w-72 rounded-full bg-sage/10 blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-leaf/30 blur-3xl pointer-events-none"></div>
+
+  <div class="relative mx-auto max-w-6xl px-4 py-14 md:py-24 text-center">
+    <span class="inline-block rounded-full bg-white/70 backdrop-blur px-4 py-1 text-xs font-medium text-sage-dark border border-leaf/40 mb-6">
+      🌿 Wiedza ziołowa, nowoczesna forma
+    </span>
     <h1 class="text-3xl md:text-5xl font-bold text-sage-dark leading-tight">
       Naturalne alternatywy <br class="hidden md:inline" />
       dla popularnych leków
@@ -103,6 +110,50 @@
     🔍
   </button>
 </form>
+    </div>
+
+    <!-- Statystyki -->
+    <dl class="mt-10 grid grid-cols-3 gap-3 md:gap-6 max-w-xl mx-auto">
+      <div class="rounded-xl bg-white/70 backdrop-blur border border-leaf/30 px-3 py-3">
+        <dt class="text-xs text-ink/55">Leki</dt>
+        <dd class="text-2xl md:text-3xl font-bold text-sage-dark">8</dd>
+      </div>
+      <div class="rounded-xl bg-white/70 backdrop-blur border border-leaf/30 px-3 py-3">
+        <dt class="text-xs text-ink/55">Zioła</dt>
+        <dd class="text-2xl md:text-3xl font-bold text-sage-dark">15</dd>
+      </div>
+      <div class="rounded-xl bg-white/70 backdrop-blur border border-leaf/30 px-3 py-3">
+        <dt class="text-xs text-ink/55">Kategorie</dt>
+        <dd class="text-2xl md:text-3xl font-bold text-sage-dark">3</dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- Jak to działa -->
+<section class="mx-auto max-w-6xl px-4 py-12">
+  <h2 class="text-2xl md:text-3xl font-semibold text-sage-dark mb-8 text-center">Jak korzystać z portalu</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+    <div class="rounded-2xl bg-white border border-leaf/30 p-6 text-center">
+      <div class="mx-auto h-12 w-12 rounded-full bg-sage/10 flex items-center justify-center text-2xl mb-3">🔍</div>
+      <h3 class="font-semibold text-lg text-ink">Wyszukaj lek</h3>
+      <p class="text-sm text-ink/65 mt-2 leading-snug">
+        Wpisz nazwę leku albo wybierz kategorię schorzenia.
+      </p>
+    </div>
+    <div class="rounded-2xl bg-white border border-leaf/30 p-6 text-center">
+      <div class="mx-auto h-12 w-12 rounded-full bg-sage/10 flex items-center justify-center text-2xl mb-3">📖</div>
+      <h3 class="font-semibold text-lg text-ink">Poznaj zioło</h3>
+      <p class="text-sm text-ink/65 mt-2 leading-snug">
+        Zobacz tradycyjny zamiennik ziołowy, jego zastosowanie i dawkowanie.
+      </p>
+    </div>
+    <div class="rounded-2xl bg-white border border-leaf/30 p-6 text-center">
+      <div class="mx-auto h-12 w-12 rounded-full bg-sage/10 flex items-center justify-center text-2xl mb-3">👨‍⚕️</div>
+      <h3 class="font-semibold text-lg text-ink">Skonsultuj się</h3>
+      <p class="text-sm text-ink/65 mt-2 leading-snug">
+        Przed zmianą leczenia porozmawiaj z lekarzem lub farmaceutą.
+      </p>
     </div>
   </div>
 </section>
@@ -144,108 +195,184 @@
 
 <!-- Popularne zestawienia -->
 <section class="mx-auto max-w-6xl px-4 py-12">
-  <h2 class="text-2xl font-semibold text-sage-dark mb-6">Popularne zestawienia</h2>
-  <div class="space-y-5">
+  <div class="flex items-end justify-between mb-6">
+    <h2 class="text-2xl md:text-3xl font-semibold text-sage-dark">Popularne zestawienia</h2>
+    <span class="hidden sm:inline text-xs text-ink/50">lek apteczny ↔ ziołowy zamiennik</span>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-5">
     
-      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4">
-        <!-- Lek -->
-        <a href="lek-ibuprofen.html"
-           class="rounded-2xl border border-leaf/40 bg-white p-5 shadow-sm hover:border-sage transition">
-          <div class="text-2xl mb-2">💊</div>
-          <h3 class="font-semibold text-lg">Ibuprofen</h3>
-          
-            <p class="text-sm text-ink/70 mt-1">Ból, gorączka, stany zapalne</p>
-          
-          <p class="text-xs text-sage-dark mt-3">Zobacz szczegóły →</p>
-        </a>
+      <a href="lek-ibuprofen.html"
+         class="group block rounded-2xl border border-leaf/40 bg-white shadow-sm hover:shadow-md hover:border-sage transition overflow-hidden">
+        <div class="grid grid-cols-2 relative">
 
-        <!-- Strzałka -->
-        <div class="text-3xl text-sage-dark text-center select-none">↔</div>
+          <!-- Lewa: lek -->
+          <div class="p-4 md:p-5 flex flex-col">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xl md:text-2xl" aria-hidden="true">💊</span>
+              <span class="text-[10px] uppercase tracking-wider text-ink/40 font-semibold">Lek</span>
+            </div>
+            <h3 class="font-bold text-base md:text-xl text-ink group-hover:text-sage-dark transition leading-tight">
+              Ibuprofen
+            </h3>
+            
+              <p class="text-xs md:text-sm text-ink/65 mt-1.5 leading-snug">Ból, gorączka, stany zapalne</p>
+            
+            <span class="mt-auto pt-3 text-xs font-medium text-sage-dark group-hover:underline">
+              Zobacz szczegóły →
+            </span>
+          </div>
 
-        <!-- Zioło -->
-        <div class="rounded-2xl border border-leaf/60 bg-cream/60 p-5 shadow-sm">
-          <div class="text-2xl mb-2">🌿</div>
-          <h3 class="font-semibold text-lg text-sage-dark">Wierzba biała</h3>
-          
-            <p class="text-xs italic text-ink/50">Salix alba</p>
-          
+          <!-- Prawa: zioło -->
+          <div class="p-4 md:p-5 bg-gradient-to-br from-cream/80 to-leaf/15 border-l border-leaf/30 flex flex-col">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xl md:text-2xl" aria-hidden="true">🌿</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage/60 font-semibold">Zamiennik</span>
+            </div>
+            <h3 class="font-bold text-base md:text-xl text-sage-dark leading-tight">
+              Wierzba biała
+            </h3>
+            
+              <p class="text-xs italic text-ink/50 mt-1.5">Salix alba</p>
+            
+          </div>
+
+          <!-- Środek: znaczek ↔ -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-8 w-8 md:h-10 md:w-10 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-sm md:text-base font-bold shadow-sm
+                       group-hover:scale-110 transition select-none">↔</span>
         </div>
-      </div>
+      </a>
     
-      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4">
-        <!-- Lek -->
-        <a href="lek-paracetamol.html"
-           class="rounded-2xl border border-leaf/40 bg-white p-5 shadow-sm hover:border-sage transition">
-          <div class="text-2xl mb-2">💊</div>
-          <h3 class="font-semibold text-lg">Paracetamol</h3>
-          
-            <p class="text-sm text-ink/70 mt-1">Ból, gorączka</p>
-          
-          <p class="text-xs text-sage-dark mt-3">Zobacz szczegóły →</p>
-        </a>
+      <a href="lek-paracetamol.html"
+         class="group block rounded-2xl border border-leaf/40 bg-white shadow-sm hover:shadow-md hover:border-sage transition overflow-hidden">
+        <div class="grid grid-cols-2 relative">
 
-        <!-- Strzałka -->
-        <div class="text-3xl text-sage-dark text-center select-none">↔</div>
+          <!-- Lewa: lek -->
+          <div class="p-4 md:p-5 flex flex-col">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xl md:text-2xl" aria-hidden="true">💊</span>
+              <span class="text-[10px] uppercase tracking-wider text-ink/40 font-semibold">Lek</span>
+            </div>
+            <h3 class="font-bold text-base md:text-xl text-ink group-hover:text-sage-dark transition leading-tight">
+              Paracetamol
+            </h3>
+            
+              <p class="text-xs md:text-sm text-ink/65 mt-1.5 leading-snug">Ból, gorączka</p>
+            
+            <span class="mt-auto pt-3 text-xs font-medium text-sage-dark group-hover:underline">
+              Zobacz szczegóły →
+            </span>
+          </div>
 
-        <!-- Zioło -->
-        <div class="rounded-2xl border border-leaf/60 bg-cream/60 p-5 shadow-sm">
-          <div class="text-2xl mb-2">🌿</div>
-          <h3 class="font-semibold text-lg text-sage-dark">Wierzba biała</h3>
-          
-            <p class="text-xs italic text-ink/50">Salix alba</p>
-          
+          <!-- Prawa: zioło -->
+          <div class="p-4 md:p-5 bg-gradient-to-br from-cream/80 to-leaf/15 border-l border-leaf/30 flex flex-col">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xl md:text-2xl" aria-hidden="true">🌿</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage/60 font-semibold">Zamiennik</span>
+            </div>
+            <h3 class="font-bold text-base md:text-xl text-sage-dark leading-tight">
+              Wierzba biała
+            </h3>
+            
+              <p class="text-xs italic text-ink/50 mt-1.5">Salix alba</p>
+            
+          </div>
+
+          <!-- Środek: znaczek ↔ -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-8 w-8 md:h-10 md:w-10 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-sm md:text-base font-bold shadow-sm
+                       group-hover:scale-110 transition select-none">↔</span>
         </div>
-      </div>
+      </a>
     
-      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4">
-        <!-- Lek -->
-        <a href="lek-aspiryna.html"
-           class="rounded-2xl border border-leaf/40 bg-white p-5 shadow-sm hover:border-sage transition">
-          <div class="text-2xl mb-2">💊</div>
-          <h3 class="font-semibold text-lg">Aspiryna</h3>
-          
-            <p class="text-sm text-ink/70 mt-1">Ból, gorączka, profilaktyka sercowo-naczyniowa</p>
-          
-          <p class="text-xs text-sage-dark mt-3">Zobacz szczegóły →</p>
-        </a>
+      <a href="lek-aspiryna.html"
+         class="group block rounded-2xl border border-leaf/40 bg-white shadow-sm hover:shadow-md hover:border-sage transition overflow-hidden">
+        <div class="grid grid-cols-2 relative">
 
-        <!-- Strzałka -->
-        <div class="text-3xl text-sage-dark text-center select-none">↔</div>
+          <!-- Lewa: lek -->
+          <div class="p-4 md:p-5 flex flex-col">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xl md:text-2xl" aria-hidden="true">💊</span>
+              <span class="text-[10px] uppercase tracking-wider text-ink/40 font-semibold">Lek</span>
+            </div>
+            <h3 class="font-bold text-base md:text-xl text-ink group-hover:text-sage-dark transition leading-tight">
+              Aspiryna
+            </h3>
+            
+              <p class="text-xs md:text-sm text-ink/65 mt-1.5 leading-snug">Ból, gorączka, profilaktyka sercowo-naczyniowa</p>
+            
+            <span class="mt-auto pt-3 text-xs font-medium text-sage-dark group-hover:underline">
+              Zobacz szczegóły →
+            </span>
+          </div>
 
-        <!-- Zioło -->
-        <div class="rounded-2xl border border-leaf/60 bg-cream/60 p-5 shadow-sm">
-          <div class="text-2xl mb-2">🌿</div>
-          <h3 class="font-semibold text-lg text-sage-dark">Wierzba biała</h3>
-          
-            <p class="text-xs italic text-ink/50">Salix alba</p>
-          
+          <!-- Prawa: zioło -->
+          <div class="p-4 md:p-5 bg-gradient-to-br from-cream/80 to-leaf/15 border-l border-leaf/30 flex flex-col">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xl md:text-2xl" aria-hidden="true">🌿</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage/60 font-semibold">Zamiennik</span>
+            </div>
+            <h3 class="font-bold text-base md:text-xl text-sage-dark leading-tight">
+              Wierzba biała
+            </h3>
+            
+              <p class="text-xs italic text-ink/50 mt-1.5">Salix alba</p>
+            
+          </div>
+
+          <!-- Środek: znaczek ↔ -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-8 w-8 md:h-10 md:w-10 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-sm md:text-base font-bold shadow-sm
+                       group-hover:scale-110 transition select-none">↔</span>
         </div>
-      </div>
+      </a>
     
-      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4">
-        <!-- Lek -->
-        <a href="lek-melatonina.html"
-           class="rounded-2xl border border-leaf/40 bg-white p-5 shadow-sm hover:border-sage transition">
-          <div class="text-2xl mb-2">💊</div>
-          <h3 class="font-semibold text-lg">Melatonina</h3>
-          
-            <p class="text-sm text-ink/70 mt-1">Trudności z zasypianiem, jet lag</p>
-          
-          <p class="text-xs text-sage-dark mt-3">Zobacz szczegóły →</p>
-        </a>
+      <a href="lek-melatonina.html"
+         class="group block rounded-2xl border border-leaf/40 bg-white shadow-sm hover:shadow-md hover:border-sage transition overflow-hidden">
+        <div class="grid grid-cols-2 relative">
 
-        <!-- Strzałka -->
-        <div class="text-3xl text-sage-dark text-center select-none">↔</div>
+          <!-- Lewa: lek -->
+          <div class="p-4 md:p-5 flex flex-col">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xl md:text-2xl" aria-hidden="true">💊</span>
+              <span class="text-[10px] uppercase tracking-wider text-ink/40 font-semibold">Lek</span>
+            </div>
+            <h3 class="font-bold text-base md:text-xl text-ink group-hover:text-sage-dark transition leading-tight">
+              Melatonina
+            </h3>
+            
+              <p class="text-xs md:text-sm text-ink/65 mt-1.5 leading-snug">Trudności z zasypianiem, jet lag</p>
+            
+            <span class="mt-auto pt-3 text-xs font-medium text-sage-dark group-hover:underline">
+              Zobacz szczegóły →
+            </span>
+          </div>
 
-        <!-- Zioło -->
-        <div class="rounded-2xl border border-leaf/60 bg-cream/60 p-5 shadow-sm">
-          <div class="text-2xl mb-2">🌿</div>
-          <h3 class="font-semibold text-lg text-sage-dark">Melisa lekarska</h3>
-          
-            <p class="text-xs italic text-ink/50">Melissa officinalis</p>
-          
+          <!-- Prawa: zioło -->
+          <div class="p-4 md:p-5 bg-gradient-to-br from-cream/80 to-leaf/15 border-l border-leaf/30 flex flex-col">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-xl md:text-2xl" aria-hidden="true">🌿</span>
+              <span class="text-[10px] uppercase tracking-wider text-sage/60 font-semibold">Zamiennik</span>
+            </div>
+            <h3 class="font-bold text-base md:text-xl text-sage-dark leading-tight">
+              Melisa lekarska
+            </h3>
+            
+              <p class="text-xs italic text-ink/50 mt-1.5">Melissa officinalis</p>
+            
+          </div>
+
+          <!-- Środek: znaczek ↔ -->
+          <span class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                       h-8 w-8 md:h-10 md:w-10 rounded-full bg-white border-2 border-sage
+                       flex items-center justify-center text-sage text-sm md:text-base font-bold shadow-sm
+                       group-hover:scale-110 transition select-none">↔</span>
         </div>
-      </div>
+      </a>
     
   </div>
 </section>
