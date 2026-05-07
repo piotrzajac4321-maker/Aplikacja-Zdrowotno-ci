@@ -12,6 +12,30 @@ Aplikacja webowa pokazująca popularne leki apteczne obok ich naturalnych, zioł
 - **CSS:** Tailwind CSS przez CDN
 - **Deploy:** Render.com (free tier) z Gunicornem
 
+## Szybki podgląd wyglądu (bez Pythona, bez Supabase)
+
+W katalogu `preview/` znajdują się gotowe pliki HTML z przykładowymi danymi.
+Otwórz dwukliknięciem:
+
+```
+preview/index.html
+```
+
+Klikalne strony do obejrzenia:
+- `preview/index.html` — strona główna (hero, kategorie, popularne zestawienia)
+- `preview/lek-ibuprofen.html`, `lek-melatonina.html`, … — szczegóły leku + alternatywy ziołowe
+- `preview/kategoria-bol.html`, `kategoria-sen.html`, `kategoria-trawienie.html` — kategorie
+- `preview/szukaj-melat.html` — przykładowy wynik wyszukiwania
+- `preview/o-projekcie.html`, `404.html`
+
+Aby przegenerować podgląd po zmianie szablonów:
+
+```bash
+python3 render_preview.py
+```
+
+> Uwaga: w trybie podglądu wyszukiwarka w nagłówku nie działa (statyczne pliki nie obsługują formularzy). Wszystkie linki między stronami działają normalnie.
+
 ## Lokalne uruchomienie
 
 ### 1. Środowisko Python

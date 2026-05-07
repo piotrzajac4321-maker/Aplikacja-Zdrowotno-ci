@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>O projekcie | ZielonaApteka</title>
+  <meta name="description"
+        content="Sprawdź, jakie zioła mogą wspierać działanie popularnych leków aptecznych. Portal informacyjny." />
+
+  <link rel="icon" href="./static/favicon.ico" />
+
+  <!-- Tailwind via CDN: brak build-stepu -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage:       '#4A7C59',
+            'sage-dark':'#2F5740',
+            leaf:       '#A8C686',
+            cream:      '#F6F4EE',
+            ink:        '#1F2A24',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./static/css/style.css" />
+</head>
+<body class="min-h-screen bg-cream font-sans text-ink antialiased flex flex-col">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-leaf/40">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center gap-4">
+      <a href="index.html" class="flex items-center gap-2 font-bold text-sage-dark text-lg shrink-0">
+        <img src="./static/img/logo.svg" alt="" class="h-8 w-8" />
+        <span>ZielonaApteka</span>
+      </a>
+      <nav class="ml-auto hidden md:flex items-center gap-5 text-sm font-medium">
+        <a href="index.html" class="hover:text-sage-dark">Strona główna</a>
+        
+          <a href="kategoria-bol.html" class="hover:text-sage-dark">
+            🤕 Ból
+          </a>
+        
+          <a href="kategoria-sen.html" class="hover:text-sage-dark">
+            🌙 Sen i uspokojenie
+          </a>
+        
+          <a href="kategoria-trawienie.html" class="hover:text-sage-dark">
+            🌿 Trawienie
+          </a>
+        
+        <a href="o-projekcie.html" class="hover:text-sage-dark">O projekcie</a>
+      </nav>
+    </div>
+    <div class="mx-auto max-w-6xl px-4 pb-3">
+      <form action="szukaj.html" method="get" class="flex w-full max-w-xl mx-auto">
+  <input
+    type="search"
+    name="q"
+    value=""
+    placeholder="Szukaj np. ibuprofen, melatonina..."
+    class="flex-1 rounded-l-full border border-leaf bg-white px-5 py-3 text-ink placeholder:text-ink/50 focus:outline-none focus:ring-2 focus:ring-sage"
+  />
+  <button
+    type="submit"
+    class="rounded-r-full bg-sage px-6 py-3 font-medium text-white transition hover:bg-sage-dark"
+    aria-label="Szukaj"
+  >
+    🔍
+  </button>
+</form>
+    </div>
+  </header>
+
+  <!-- Disclaimer banner -->
+  <div class="bg-amber-50 text-amber-900 text-xs">
+    <div class="mx-auto max-w-6xl px-4 py-2 text-center">
+      ⓘ Treści mają charakter wyłącznie informacyjny i nie zastępują porady lekarza ani farmaceuty.
+    </div>
+  </div>
+
+  <!-- Main -->
+  <main class="flex-1">
+    
+<div class="mx-auto max-w-3xl px-4 py-10 prose prose-sage">
+  <h1 class="text-3xl font-bold text-sage-dark mb-4">O projekcie</h1>
+
+  <p class="text-ink/80">
+    <strong>ZielonaApteka</strong> to projekt edukacyjny, który zestawia popularne leki dostępne w aptekach
+    z ich tradycyjnymi, ziołowymi odpowiednikami. Celem jest pokazanie naturalnych korzeni współczesnej farmakologii
+    oraz ułatwienie dyskusji z lekarzem lub farmaceutą o opcjach wsparcia ziołowego.
+  </p>
+
+  <h2 class="text-xl font-semibold text-sage-dark mt-8 mb-2">Skąd dane?</h2>
+  <p class="text-ink/80">
+    Opisy ziół opieramy o ogólnodostępne źródła: monografie ESCOP, publikacje PZH oraz polską literaturę zielarską.
+    Zachęcamy do weryfikacji we własnym zakresie.
+  </p>
+
+  <h2 class="text-xl font-semibold text-sage-dark mt-8 mb-2">Ważne zastrzeżenie</h2>
+  <div class="rounded-2xl bg-amber-50 p-4 text-amber-900 text-sm">
+    <p>
+      ⚠️ Treści w serwisie mają charakter <strong>wyłącznie informacyjny</strong> i <strong>nie zastępują</strong>
+      porady lekarza ani farmaceuty.
+    </p>
+    <ul class="list-disc ml-5 mt-2 space-y-1">
+      <li>Nie odstawiaj leków bez konsultacji z lekarzem.</li>
+      <li>Zioła mogą wchodzić w interakcje z lekami i mieć przeciwwskazania (ciąża, karmienie, dzieci).</li>
+      <li>W razie wątpliwości skonsultuj się ze specjalistą.</li>
+    </ul>
+  </div>
+
+  <h2 class="text-xl font-semibold text-sage-dark mt-8 mb-2">Stack technologiczny</h2>
+  <ul class="list-disc ml-5 text-ink/80">
+    <li>Python 3 + Flask</li>
+    <li>Supabase (PostgreSQL)</li>
+    <li>Tailwind CSS</li>
+    <li>Hosting: Render.com</li>
+  </ul>
+</div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-12 border-t border-leaf/40 bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-ink/60">
+      <p>© 2026 ZielonaApteka — projekt edukacyjny.</p>
+      <p>Dane wyłącznie informacyjne. Skonsultuj się z lekarzem lub farmaceutą.</p>
+      <a href="o-projekcie.html" class="hover:text-sage-dark">O projekcie</a>
+    </div>
+  </footer>
+
+</body>
+</html>

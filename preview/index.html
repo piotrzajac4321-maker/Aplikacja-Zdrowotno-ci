@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ZielonaApteka — naturalne alternatywy dla popularnych leków</title>
+  <meta name="description"
+        content="Sprawdź, jakie zioła mogą wspierać działanie popularnych leków aptecznych. Portal informacyjny." />
+
+  <link rel="icon" href="./static/favicon.ico" />
+
+  <!-- Tailwind via CDN: brak build-stepu -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage:       '#4A7C59',
+            'sage-dark':'#2F5740',
+            leaf:       '#A8C686',
+            cream:      '#F6F4EE',
+            ink:        '#1F2A24',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./static/css/style.css" />
+</head>
+<body class="min-h-screen bg-cream font-sans text-ink antialiased flex flex-col">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur border-b border-leaf/40">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center gap-4">
+      <a href="index.html" class="flex items-center gap-2 font-bold text-sage-dark text-lg shrink-0">
+        <img src="./static/img/logo.svg" alt="" class="h-8 w-8" />
+        <span>ZielonaApteka</span>
+      </a>
+      <nav class="ml-auto hidden md:flex items-center gap-5 text-sm font-medium">
+        <a href="index.html" class="hover:text-sage-dark">Strona główna</a>
+        
+          <a href="kategoria-bol.html" class="hover:text-sage-dark">
+            🤕 Ból
+          </a>
+        
+          <a href="kategoria-sen.html" class="hover:text-sage-dark">
+            🌙 Sen i uspokojenie
+          </a>
+        
+          <a href="kategoria-trawienie.html" class="hover:text-sage-dark">
+            🌿 Trawienie
+          </a>
+        
+        <a href="o-projekcie.html" class="hover:text-sage-dark">O projekcie</a>
+      </nav>
+    </div>
+    <div class="mx-auto max-w-6xl px-4 pb-3">
+      <form action="szukaj.html" method="get" class="flex w-full max-w-xl mx-auto">
+  <input
+    type="search"
+    name="q"
+    value=""
+    placeholder="Szukaj np. ibuprofen, melatonina..."
+    class="flex-1 rounded-l-full border border-leaf bg-white px-5 py-3 text-ink placeholder:text-ink/50 focus:outline-none focus:ring-2 focus:ring-sage"
+  />
+  <button
+    type="submit"
+    class="rounded-r-full bg-sage px-6 py-3 font-medium text-white transition hover:bg-sage-dark"
+    aria-label="Szukaj"
+  >
+    🔍
+  </button>
+</form>
+    </div>
+  </header>
+
+  <!-- Disclaimer banner -->
+  <div class="bg-amber-50 text-amber-900 text-xs">
+    <div class="mx-auto max-w-6xl px-4 py-2 text-center">
+      ⓘ Treści mają charakter wyłącznie informacyjny i nie zastępują porady lekarza ani farmaceuty.
+    </div>
+  </div>
+
+  <!-- Main -->
+  <main class="flex-1">
+    
+<!-- Hero -->
+<section class="bg-gradient-to-br from-leaf/30 via-cream to-cream">
+  <div class="mx-auto max-w-6xl px-4 py-14 md:py-20 text-center">
+    <h1 class="text-3xl md:text-5xl font-bold text-sage-dark leading-tight">
+      Naturalne alternatywy <br class="hidden md:inline" />
+      dla popularnych leków
+    </h1>
+    <p class="mt-4 text-base md:text-lg text-ink/70 max-w-2xl mx-auto">
+      Sprawdź, jakie zioła tradycyjnie wspierały działanie leków, które dziś znajdziesz w aptece.
+    </p>
+    <div class="mt-8">
+      <form action="szukaj.html" method="get" class="flex w-full max-w-xl mx-auto">
+  <input
+    type="search"
+    name="q"
+    value=""
+    placeholder="Szukaj np. ibuprofen, melatonina..."
+    class="flex-1 rounded-l-full border border-leaf bg-white px-5 py-3 text-ink placeholder:text-ink/50 focus:outline-none focus:ring-2 focus:ring-sage"
+  />
+  <button
+    type="submit"
+    class="rounded-r-full bg-sage px-6 py-3 font-medium text-white transition hover:bg-sage-dark"
+    aria-label="Szukaj"
+  >
+    🔍
+  </button>
+</form>
+    </div>
+  </div>
+</section>
+
+<!-- Kategorie -->
+<section class="mx-auto max-w-6xl px-4 py-12">
+  <h2 class="text-2xl font-semibold text-sage-dark mb-6">Kategorie</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+    
+      <a href="kategoria-bol.html"
+         class="group rounded-2xl border border-leaf/40 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-sage hover:shadow-md">
+        <div class="text-4xl mb-3" aria-hidden="true">🤕</div>
+        <h3 class="text-xl font-semibold group-hover:text-sage-dark">Ból</h3>
+        
+          <p class="mt-2 text-sm text-ink/70">Leki i zioła stosowane przy bólu głowy, mięśni i stanach zapalnych.</p>
+        
+      </a>
+    
+      <a href="kategoria-sen.html"
+         class="group rounded-2xl border border-leaf/40 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-sage hover:shadow-md">
+        <div class="text-4xl mb-3" aria-hidden="true">🌙</div>
+        <h3 class="text-xl font-semibold group-hover:text-sage-dark">Sen i uspokojenie</h3>
+        
+          <p class="mt-2 text-sm text-ink/70">Wsparcie zdrowego snu, redukcja stresu i napięcia nerwowego.</p>
+        
+      </a>
+    
+      <a href="kategoria-trawienie.html"
+         class="group rounded-2xl border border-leaf/40 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:border-sage hover:shadow-md">
+        <div class="text-4xl mb-3" aria-hidden="true">🌿</div>
+        <h3 class="text-xl font-semibold group-hover:text-sage-dark">Trawienie</h3>
+        
+          <p class="mt-2 text-sm text-ink/70">Niestrawność, wzdęcia, biegunka, zgaga i inne dolegliwości żołądka.</p>
+        
+      </a>
+    
+  </div>
+</section>
+
+<!-- Popularne zestawienia -->
+<section class="mx-auto max-w-6xl px-4 py-12">
+  <h2 class="text-2xl font-semibold text-sage-dark mb-6">Popularne zestawienia</h2>
+  <div class="space-y-5">
+    
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <!-- Lek -->
+        <a href="lek-ibuprofen.html"
+           class="rounded-2xl border border-leaf/40 bg-white p-5 shadow-sm hover:border-sage transition">
+          <div class="text-2xl mb-2">💊</div>
+          <h3 class="font-semibold text-lg">Ibuprofen</h3>
+          
+            <p class="text-sm text-ink/70 mt-1">Ból, gorączka, stany zapalne</p>
+          
+          <p class="text-xs text-sage-dark mt-3">Zobacz szczegóły →</p>
+        </a>
+
+        <!-- Strzałka -->
+        <div class="text-3xl text-sage-dark text-center select-none">↔</div>
+
+        <!-- Zioło -->
+        <div class="rounded-2xl border border-leaf/60 bg-cream/60 p-5 shadow-sm">
+          <div class="text-2xl mb-2">🌿</div>
+          <h3 class="font-semibold text-lg text-sage-dark">Wierzba biała</h3>
+          
+            <p class="text-xs italic text-ink/50">Salix alba</p>
+          
+        </div>
+      </div>
+    
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <!-- Lek -->
+        <a href="lek-paracetamol.html"
+           class="rounded-2xl border border-leaf/40 bg-white p-5 shadow-sm hover:border-sage transition">
+          <div class="text-2xl mb-2">💊</div>
+          <h3 class="font-semibold text-lg">Paracetamol</h3>
+          
+            <p class="text-sm text-ink/70 mt-1">Ból, gorączka</p>
+          
+          <p class="text-xs text-sage-dark mt-3">Zobacz szczegóły →</p>
+        </a>
+
+        <!-- Strzałka -->
+        <div class="text-3xl text-sage-dark text-center select-none">↔</div>
+
+        <!-- Zioło -->
+        <div class="rounded-2xl border border-leaf/60 bg-cream/60 p-5 shadow-sm">
+          <div class="text-2xl mb-2">🌿</div>
+          <h3 class="font-semibold text-lg text-sage-dark">Wierzba biała</h3>
+          
+            <p class="text-xs italic text-ink/50">Salix alba</p>
+          
+        </div>
+      </div>
+    
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <!-- Lek -->
+        <a href="lek-aspiryna.html"
+           class="rounded-2xl border border-leaf/40 bg-white p-5 shadow-sm hover:border-sage transition">
+          <div class="text-2xl mb-2">💊</div>
+          <h3 class="font-semibold text-lg">Aspiryna</h3>
+          
+            <p class="text-sm text-ink/70 mt-1">Ból, gorączka, profilaktyka sercowo-naczyniowa</p>
+          
+          <p class="text-xs text-sage-dark mt-3">Zobacz szczegóły →</p>
+        </a>
+
+        <!-- Strzałka -->
+        <div class="text-3xl text-sage-dark text-center select-none">↔</div>
+
+        <!-- Zioło -->
+        <div class="rounded-2xl border border-leaf/60 bg-cream/60 p-5 shadow-sm">
+          <div class="text-2xl mb-2">🌿</div>
+          <h3 class="font-semibold text-lg text-sage-dark">Wierzba biała</h3>
+          
+            <p class="text-xs italic text-ink/50">Salix alba</p>
+          
+        </div>
+      </div>
+    
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <!-- Lek -->
+        <a href="lek-melatonina.html"
+           class="rounded-2xl border border-leaf/40 bg-white p-5 shadow-sm hover:border-sage transition">
+          <div class="text-2xl mb-2">💊</div>
+          <h3 class="font-semibold text-lg">Melatonina</h3>
+          
+            <p class="text-sm text-ink/70 mt-1">Trudności z zasypianiem, jet lag</p>
+          
+          <p class="text-xs text-sage-dark mt-3">Zobacz szczegóły →</p>
+        </a>
+
+        <!-- Strzałka -->
+        <div class="text-3xl text-sage-dark text-center select-none">↔</div>
+
+        <!-- Zioło -->
+        <div class="rounded-2xl border border-leaf/60 bg-cream/60 p-5 shadow-sm">
+          <div class="text-2xl mb-2">🌿</div>
+          <h3 class="font-semibold text-lg text-sage-dark">Melisa lekarska</h3>
+          
+            <p class="text-xs italic text-ink/50">Melissa officinalis</p>
+          
+        </div>
+      </div>
+    
+  </div>
+</section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-12 border-t border-leaf/40 bg-white">
+    <div class="mx-auto max-w-6xl px-4 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-ink/60">
+      <p>© 2026 ZielonaApteka — projekt edukacyjny.</p>
+      <p>Dane wyłącznie informacyjne. Skonsultuj się z lekarzem lub farmaceutą.</p>
+      <a href="o-projekcie.html" class="hover:text-sage-dark">O projekcie</a>
+    </div>
+  </footer>
+
+</body>
+</html>
