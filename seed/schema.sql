@@ -36,16 +36,22 @@ CREATE INDEX IF NOT EXISTS idx_medications_name_trgm
 
 -- 3. Zioła ----------------------------------------------
 CREATE TABLE IF NOT EXISTS herbs (
-    id             bigserial PRIMARY KEY,
-    slug           text NOT NULL UNIQUE,
-    name_pl        text NOT NULL,
-    latin_name     text,
-    description_pl text,
-    how_to_use_pl  text,
-    cautions_pl    text,
-    image_url      text,
-    created_at     timestamptz NOT NULL DEFAULT now()
+    id               bigserial PRIMARY KEY,
+    slug             text NOT NULL UNIQUE,
+    name_pl          text NOT NULL,
+    latin_name       text,
+    description_pl   text,
+    how_to_use_pl    text,
+    cautions_pl      text,
+    appearance_pl    text,                  -- wygląd zioła (jak rozpoznać)
+    where_to_find_pl text,                  -- gdzie kupić / czy rośnie dziko w PL
+    image_url        text,
+    created_at       timestamptz NOT NULL DEFAULT now()
 );
+
+-- Migracja: dodaj kolumny dla istniejących baz utworzonych przed tymi polami
+ALTER TABLE herbs ADD COLUMN IF NOT EXISTS appearance_pl    text;
+ALTER TABLE herbs ADD COLUMN IF NOT EXISTS where_to_find_pl text;
 
 -- 4. Powiązania lek <-> zioło (many-to-many) ------------
 CREATE TABLE IF NOT EXISTS medication_herbs (

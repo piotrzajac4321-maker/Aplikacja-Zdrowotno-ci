@@ -134,10 +134,24 @@
                   <p class="text-ink/80">{{ herb.description_pl }}</p>
                 {% endif %}
 
+                {% if herb.appearance_pl %}
+                  <p class="text-ink/80">
+                    <span class="inline-block rounded bg-leaf/40 text-sage-dark px-2 py-0.5 text-xs font-semibold mr-1">🌱 Wygląd</span>
+                    {{ herb.appearance_pl }}
+                  </p>
+                {% endif %}
+
                 {% if herb.how_to_use_pl %}
                   <p class="text-ink/80">
                     <span class="inline-block rounded bg-leaf/30 text-sage-dark px-2 py-0.5 text-xs font-semibold mr-1">Jak stosować</span>
                     {{ herb.how_to_use_pl }}
+                  </p>
+                {% endif %}
+
+                {% if herb.where_to_find_pl %}
+                  <p class="text-ink/80">
+                    <span class="inline-block rounded bg-cream text-sage-dark border border-leaf/40 px-2 py-0.5 text-xs font-semibold mr-1">🛒 Gdzie znaleźć</span>
+                    {{ herb.where_to_find_pl }}
                   </p>
                 {% endif %}
 
